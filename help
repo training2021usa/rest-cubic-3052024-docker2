@@ -58,3 +58,6 @@ services:
     depends_on:
       - mysqldb
     restart: on-failure
+    
+    =================
+    #RUN cp target/rest-cubic-3052023-docker2.war rest-cubic-3052023-docker2.war     >>not running
