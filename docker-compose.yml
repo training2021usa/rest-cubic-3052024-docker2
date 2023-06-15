@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    container_name: mysqldb-container
+    image: mysql
+    ports:
+      - "33006:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+
+  rest-cubic-3052024-docker2-rest-api:
+    container_name: rest-cubic-3052024-docker2-rest-api-container
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "9090:8080"
+    depends_on:
+      - mysqldb
+    restart: on-failure
